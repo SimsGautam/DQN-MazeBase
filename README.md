@@ -3,7 +3,7 @@ Original Deep Q-Network code integrated with Facebook MazeBase environment
 
 What?
 -----
-Takes DQN agent from [Deepmind-Atari-Deep-Q-Learner](https://github.com/kuz/DeepMind-Atari-Deep-Q-Learner) and MazeBase environment from [Facebook MazeBase](https://github.com/facebook/MazeBase). Instead of using [alewrap][https://github.com/deepmind/alewrap] for the environment, we create a wrapper (mbwrap) for interfacing the DeepMind code with MazeBase.
+Takes DQN agent from [Deepmind-Atari-Deep-Q-Learner](https://github.com/kuz/DeepMind-Atari-Deep-Q-Learner) and MazeBase environment from [Facebook MazeBase](https://github.com/facebook/MazeBase). Instead of using [alewrap](https://github.com/deepmind/alewrap) for the environment, we create a wrapper (mbwrap) for interfacing the DeepMind code with MazeBase.
 
 Why?
 ----
