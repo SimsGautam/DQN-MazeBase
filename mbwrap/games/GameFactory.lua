@@ -40,6 +40,7 @@ end
 function GameFactory:init_random_game()
     local n = torch.multinomial(self.probs,1)[1]
     local gname = self.glist[n]
+    print(gname)
     local gopts = self.helpers[gname]:generate_gameopts()
     local g = self.games[gname](gopts,self.vocab)
     return g

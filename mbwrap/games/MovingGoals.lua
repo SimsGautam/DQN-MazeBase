@@ -1,4 +1,5 @@
 local MovingGoals, parent = torch.class('MovingGoals', 'MazeBase')
+
 math = require ('math')
 
 function MovingGoals:__init(opts, vocab)
@@ -8,10 +9,10 @@ function MovingGoals:__init(opts, vocab)
         self:place_item({type = 'block'},block_locs[i][1],block_locs[i][2])
     end
     -- random_goal_x uniformly sampled from {0,1,2}
-    random_goal_x = math.random(1,10)
+    random_goal_x = 4
     -- random_goal_y uniformly sampled from {0,1,..,9}
-    random_goal_y = math.random(1,3)
-    self.goal = self:place_item({type = 'goal'}, random_goal_x, random_goal_y)
+    random_goal_y = 2
+    self.goal = self:place_item({type = 'goal', name = 'goal' .. 1}, random_goal_x, random_goal_y)
 
     if self.agent == nil then
         self.agents = {}

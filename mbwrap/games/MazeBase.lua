@@ -329,6 +329,9 @@ function MazeBase:is_active()
     return (not self.finished)
 end
 
+function MazeBase:is_terminal()
+    return self.finished
+
 function MazeBase:is_success()
     if self:is_active() then
         return false
