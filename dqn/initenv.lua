@@ -115,7 +115,7 @@ function setup(_opt)
     local framework = require(opt.framework)
     assert(framework)
 
-    local gameEnv = framework.GameEnvironment(opt)
+    local gameEnv = framework.GameEnvironment('MovingGoals')
     local gameActions = gameEnv:getActions()
 
     -- agent options
