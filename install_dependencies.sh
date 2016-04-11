@@ -43,8 +43,6 @@ echo "==> Torch7's dependencies have been installed"
 
 
 
-
-
 # Build and install Torch7
 cd /tmp
 rm -rf luajit-rocks

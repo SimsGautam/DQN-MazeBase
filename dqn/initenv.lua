@@ -112,7 +112,7 @@ function setup(_opt)
     local opt = torchSetup(_opt)
 
     -- load training framework and environment
-    local framework = require(opt.framework)
+    local framework = require '../mbwrap/init.lua'
     assert(framework)
 
     local gameEnv = framework.GameEnvironment('MovingGoals')
