@@ -10,7 +10,8 @@ fi
 
 ENV=$1
 NETWORK=$2
-FRAMEWORK="alewrap"
+# FRAMEWORK="alewrap"
+FRAMEWORK="mbwrap"
 
 game_path=$PWD"/roms/"
 env_params="useRGB=true"

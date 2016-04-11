@@ -4,7 +4,8 @@ if [ -z "$1" ]
   then echo "Please provide the name of the game, e.g.  ./run_cpu breakout "; exit 0
 fi
 ENV=$1
-FRAMEWORK="alewrap"
+# FRAMEWORK="alewrap"
+FRAMEWORK="mbwrap"
 
 game_path=$PWD"/roms/"
 env_params="useRGB=true"
