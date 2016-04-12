@@ -2,13 +2,14 @@ local gameEnv = torch.class('mbwrap.GameEnvironment')
 
 function gameEnv:__init(game_name)
     g_opts = {}
-    g_opts.games_config_path = 'games/config/game_config.lua'
+    g_opts.games_config_path = '/home/cocosci/simanta/DQN-MazeBase/mbwrap/games/config/game_config.lua'
 
     -- Specify game environment
     g_opts.game = game_name
 
     g_init_vocab()
     g_init_game()
+    self._state = {}
 
     self:newGame()
 
@@ -25,7 +26,7 @@ end
 function gameEnv:getState()
     --returns screen, reward, terminal
     self._state.observation = self._state.observation or self.g.map:to_image():clone()
-    self._state.observation:copy(self._screen:grab())
+    self._state.observation:copy(self.g.map:to_image())
     return self._state.observation, self._state.reward, self._state.terminal
 end
 
@@ -37,12 +38,16 @@ end
 function gameEnv:step(action, training)
     -- training is boolean, returns self:getState()
     assert(action)
+    action_name_to_index = {['up'] = 1, ['down'] = 2,
+                            ['left'] = 3, ['right'] = 4,
+                            ['stop'] = 5}
+    action = action_name_to_index[action]
     self.g:act(action)
     self.g:update()
     frame = self.g.map:to_image()
     reward = self.g:get_reward()
     terminal = self.g:is_terminal()
-    self:_updateState(frame, cumulated_reward, terminal)
+    self:_updateState(frame, reward, terminal)
     return self:getState()
 end
 
@@ -70,6 +75,9 @@ function gameEnv:nObsFeature()
 end
 
 function gameEnv:getActions()
-    return self.g.agent.action_names
+    t = self.g.agent.action_names
+    table.remove(t,6)
+    print(t)
+    return t
 end
 

@@ -33,9 +33,14 @@ function MovingGoals:update()
 end
 
 function MovingGoals:get_reward()
+    -- if self.finished then
+    --     return -self.costs.goal
+    -- else
+    --     return parent.get_reward(self)
+    -- end
     if self.finished then
-        return -self.costs.goal
+        return 0
     else
-        return parent.get_reward(self)
+        return -0.1
     end
 end

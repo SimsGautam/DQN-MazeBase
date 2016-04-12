@@ -14,7 +14,7 @@ function MazeMap:__init(opts)
     -- self.width = opts.map_width or 10
     self.height = 10
     self.width = 10
-    self.img_path = './games/images/'
+    self.img_path = '/home/cocosci/simanta/DQN-MazeBase/mbwrap/games/images/'
 
     -- Items by x,y location
     self.items = {}

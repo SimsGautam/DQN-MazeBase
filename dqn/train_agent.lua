@@ -85,6 +85,7 @@ while step < opt.steps do
 
     -- game over? get next game!
     if not terminal then
+        -- for k,v in pairs(game_actions) do print(k,v) end
         screen, reward, terminal = game_env:step(game_actions[action_index], true)
     else
         if opt.random_starts > 0 then
