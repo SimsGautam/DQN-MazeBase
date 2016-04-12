@@ -17,7 +17,7 @@ function MovingGoals:__init(opts, vocab)
     if self.agent == nil then
         self.agents = {}
         for i = 1, self.nagents do
-            self.agents[i] =  self:place_item({type = 'agent'}, 6, 8)
+            self.agents[i] =  self:place_item({type = 'agent'}, 4, 4)
         end
         self.agent = self.agents[1]
     end

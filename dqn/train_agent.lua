@@ -130,16 +130,18 @@ while step < opt.steps do
             if estep%1000 == 0 then collectgarbage() end
 
             -- record every reward
+
             episode_reward = episode_reward + reward
             if reward ~= 0 then
                nrewards = nrewards + 1
             end
 
-            if terminal then
+            if terminal or estep == opt.eval_steps then
                 total_reward = total_reward + episode_reward
                 episode_reward = 0
                 nepisodes = nepisodes + 1
-                screen, reward, terminal = game_env:nextRandomGame()
+                -- screen, reward, terminal = game_env:nextRandomGame()
+                screen, reward, terminal = game_env:newGame()
             end
         end
 
